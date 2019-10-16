@@ -23,18 +23,13 @@ Las reglas son las siguientes:
   jugar(_). //Empezamos la partida
   ~~~
   
-  Despues de llamar al predicado jugar nos saldra esto por pantalla:
-    <img src="/Img/output.jpg" width="300" title="tablero" align="right">
-    <br/>
-    <br/>
-    <br/>
-    
   
-  
-  
-  
-  
-  
+<p align="center">
+     Despues de llamar al predicado jugar nos saldra esto por pantalla:
+   <img src="/Img/output.jpg" width="300" title="tablero" align="right">
+  </p>
+ 
+   
   Una vez ejecutado, el primer turno por defecto sera el del Jugador. Se le preguntara en que posicion desea marcar. Primero la fila (1,2 o 3) y despues la columna a, b o c.
   
 
