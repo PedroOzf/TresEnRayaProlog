@@ -12,8 +12,8 @@ Las reglas son las siguientes:
     <li>El juego termina cuando gane el jugador(O), la IA(X) o todas las celdas del tablero esten completas, en ese caso se tendra en cuenta como empate.</li>
   </ol>
   <img src="/Img/tablero.jpg" width="300" title="tablero" align="center">
+  <img src="/Img/jugar.JGP" width="300" title="jubar(_)" align="center">
 </p>
-  <img src="/Img/jugar.jpg" width="300" title="tablero" align="center">
 
 
 
