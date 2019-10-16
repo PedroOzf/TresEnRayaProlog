@@ -16,18 +16,28 @@ Las reglas son las siguientes:
   
   Para ejecutar el codigo se necesita el programa [SWI Prolog](https://www.swi-prolog.org/Download.html). Una vez descargardo, en la consola de comandos, nos vamos al directorio donde tenemos el archivo TresEnRaya.pl. 
   
-  Ejecutamos los comandos:
+  En Linux ejecutamos los comandos en la consola:
   ~~~
-  swipl //Para iniciar el programa 
-  ['TresEnRaya.pl']. //Cargamos el codigo en el programa.
+  cd "Directorio del fichero" //Nos situamos en la carpeta donde tenemos el codigo
+  swipl TresEnRaya.pl //Para iniciar el programa y cargar el codigo
   jugar(_). //Empezamos la partida
   ~~~
   
+  Despues de llamar al predicado jugar nos saldra esto por pantalla:
+    <img src="/Img/output.jpg" width="300" title="tablero" align="right">
+    <br/>
+    <br/>
+    <br/>
+    
+  
+  
+  
+  
+  
+  
   Una vez ejecutado, el primer turno por defecto sera el del Jugador. Se le preguntara en que posicion desea marcar. Primero la fila (1,2 o 3) y despues la columna a, b o c.
   
-  
-  
- 
+
  ~~~
 jugar(_):-
 	iniciar_tablero(Tabla),
