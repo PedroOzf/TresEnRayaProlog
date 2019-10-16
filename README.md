@@ -32,6 +32,11 @@ Despues de llamar al predicado jugar nos saldra esto por pantalla:
  3 | | | |
 Escoje Turno: (1-Empieza IA; 0-Empieza Jugador
 |: 0.
+~~~
+  Una vez ejecutado, el primer turno por defecto sera el del Jugador. Se le preguntara en que posicion desea marcar. Primero la fila (1,2 o 3) y despues la columna a, b o c.
+  
+
+~~~
 Turno jugador: 
 Fila: 
 |: 2.
@@ -49,10 +54,31 @@ Turno IA:
  2 | |X| |
  3 | | |O|
 ~~~	
- 
-  Una vez ejecutado, el primer turno por defecto sera el del Jugador. Se le preguntara en que posicion desea marcar. Primero la fila (1,2 o 3) y despues la columna a, b o c.
-  
 
+La IA esta implementada para empatar o ganar pero nunca perder independientemente de si empieza la partida o no. Si cometes un error la maquina lo aprovecha para ganarte. Un ejemplo claro:
+~~~
+Turno jugador: 
+Fila: 
+|: 1.
+
+Columna: 
+|: c.
+
+   |a|b|c|
+ 1 |X| |X|
+ 2 | |X| |
+ 3 |O| |O|
+Turno IA: 
+   |a|b|c|
+ 1 |X| |X|
+ 2 | |X| |
+ 3 |O|O|O|
+Fin de partida, gana O
+
+~~~
+
+ 
+El predicado para iniciar la partida consta de las siguientes partes: 
  ~~~
 jugar(_):-
 	iniciar_tablero(Tabla),
