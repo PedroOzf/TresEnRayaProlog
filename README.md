@@ -9,4 +9,4 @@ Las reglas son las siguientes:
 4. El ganador sera el primero que consiga tener 3 fichas en una linea recta ya sea horizontal, vertical o diagonal.
 5. El juego termina cuando gane el jugador(O), la IA(X) o todas las celdas del tablero esten completas, en ese caso se tendra en cuenta como empate.
 
-![Tablero Tde Ejemplo](/Img/EjemploTablero.png)
+![Tablero Tde Ejemplo](/Img/tablero.jpg)
