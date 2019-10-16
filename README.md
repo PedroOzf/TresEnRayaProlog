@@ -9,4 +9,9 @@ Las reglas son las siguientes:
 4. El ganador sera el primero que consiga tener 3 fichas en una linea recta ya sea horizontal, vertical o diagonal.
 5. El juego termina cuando gane el jugador(O), la IA(X) o todas las celdas del tablero esten completas, en ese caso se tendra en cuenta como empate.
 
-![Tablero Tde Ejemplo](/Img/tablero.jpg)
+
+<p align="center">
+  Este es un ejemplo de tablero que se usa para jugar al tres en raya
+  <img src="/Img/tablero.jpg" width="300" title="hover text" align="right">
+</p>
+
