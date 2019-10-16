@@ -14,7 +14,7 @@ Tres en Raya prolog
 
     You should have received a copy of the GNU General Public License
     along with this program.  If not, see <https://www.gnu.org/licenses/>.
-*/
+**/
 iniciar_tablero([n,n,n,n,n,n,n,n,n]).
 jugada_ganada([F,F,F,_,_,_,_,_,_],F).
 jugada_ganada([_,_,_,F,F,F,_,_,_],F).
