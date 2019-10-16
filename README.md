@@ -13,4 +13,7 @@ Las reglas son las siguientes:
   </ol>
   <img src="/Img/tablero.jpg" width="300" title="tablero" align="center">
 </p>
+  <img src="/Img/jugar.jpg" width="300" title="tablero" align="center">
+
+
 
