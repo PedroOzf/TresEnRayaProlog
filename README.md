@@ -23,13 +23,33 @@ Las reglas son las siguientes:
   jugar(_). //Empezamos la partida
   ~~~
   
-  
-<p align="center">
-     Despues de llamar al predicado jugar nos saldra esto por pantalla:
-   <img src="/Img/output.jpg" width="300" title="tablero" align="right">
-  </p>
+Despues de llamar al predicado jugar nos saldra esto por pantalla:
+~~~
+?- jugar(_).
+   |a|b|c|
+ 1 | | | |
+ 2 | | | |
+ 3 | | | |
+Escoje Turno: (1-Empieza IA; 0-Empieza Jugador
+|: 0.
+Turno jugador: 
+Fila: 
+|: 2.
+
+Columna: 
+|: b.
+
+   |a|b|c|
+ 1 | | | |
+ 2 | |X| |
+ 3 | | | |
+Turno IA: 
+   |a|b|c|
+ 1 | | | |
+ 2 | |X| |
+ 3 | | |O|
+~~~	
  
-   
   Una vez ejecutado, el primer turno por defecto sera el del Jugador. Se le preguntara en que posicion desea marcar. Primero la fila (1,2 o 3) y despues la columna a, b o c.
   
 
