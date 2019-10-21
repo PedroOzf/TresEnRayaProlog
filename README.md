@@ -1,4 +1,4 @@
-# TresEnRayaProlog
+# Tres En Raya en Prolog
 Nuestro codigo consiste en el juego **Tres en Raya** (Three in a row). El juego consiste en una tabla de 3x3 donde dos jugadores, en nuestro caso, un jugador(O) y una inteligencia articial(X), deben colocar sus fichas hasta conseguir poner 3 fichas del mismo tipo en linea.
 
 Las reglas son las siguientes:
@@ -167,6 +167,9 @@ partida(Tabla,0):-
 	partida(T,1),
 	!.
 ~~~	
+
+## Empieza el jugador
+
 Si la opcion fue que empieza primero el jugador, se llamara a jugador(Tabla, Nueva Tabla, x). Donde le pasamos la tabla y la ficha del jugador que son las 'x'. Y este nos devuelve una tabla nueva con la posicion actualizada.
 
 ~~~
@@ -229,6 +232,25 @@ victoria(Tablero,Jugador):-
 	!.
 ~~~
 
+Por ejemplo si la IA ganase (las 'O'), se imprimiria esto por pantalla:
+~~~
+Turno IA: 
+   |a|b|c|
+ 1 |X|X|O|
+ 2 |X|O| |
+ 3 |O| | |
+Fin de partida, gana O
+~~~
+La lista de esta partida seria:
+**[X,X,O,X,O, ,O, , ]**
+Vemos que la IA tiene en la diagonal, es decir, que al comprobar con jugada_ganada() devolvera **true** ya que:
+
+~~~
+jugada_ganada([_,_,F,_,F,_,F,_,_],F).
+~~~
+Donde F es igual a O.
+
+## Empieza la IA
  
  
 
