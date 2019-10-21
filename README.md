@@ -143,9 +143,91 @@ El resultado seria este porque la lista esta vacia:
  Escoje Turno: (1-Empieza IA; 0-Empieza Jugador
 |: 
 ~~~
-Lo lee y llama al predicado con la tabla vacia y nuestra preferencia partida(Tabla,A) para empezar
+Lo lee y llama al predicado con la tabla vacia y nuestra preferencia partida(Tabla,A) para empezar la partida.
  
+En funcion del valor de A ( nuestra eleccion de jugador) llama a un predicado o a otro: 
 
+~~~
+partida(Tabla,1):-
+	write('Turno IA: '),
+	nl,
+	gallego(Tabla, NuevaTabla,o),
+	show(NuevaTabla),
+	\+ victoria(NuevaTabla,o),
+	\+ empate(NuevaTabla),
+	partida(NuevaTabla,0),
+	!.
+partida(Tabla,0):-
+	write('Turno jugador: '),
+	nl,
+	jugador(Tabla, T,x),
+	show(T),
+	\+ victoria(T,x),
+	\+ empate(T),
+	partida(T,1),
+	!.
+~~~	
+Si la opcion fue que empieza primero el jugador, se llamara a jugador(Tabla, Nueva Tabla, x). Donde le pasamos la tabla y la ficha del jugador que son las 'x'. Y este nos devuelve una tabla nueva con la posicion actualizada.
+
+~~~
+jugador(Tabla,NuevaTabla, Jugador):-
+	write('Fila: '),
+	nl,
+	read(F),
+	nl,
+	write('Columna: '),
+	nl,
+	read(C),
+	nl,
+	obtener_posicion(F,C,P),
+	movimiento(Tabla,P,NuevaTabla,Jugador).
+~~~
+Lee la fila y columna que escribimos. La situa en la matriz y la actualiza.
+movimiento() se asegura de que la celda donde queremos colocar la ficha no esta ocupada por otra.
+
+Despues muestra la matriz actualizada por pantalla.
+~~~
+Turno jugador: 
+Fila: 
+|: 2.
+
+Columna: 
+|: a.
+
+   |a|b|c|
+ 1 | | | |
+ 2 |X| | |
+ 3 | | | |
+ ~~~
+ 
+ Antes de acabar el turno comprueba que:
+ <ol>
+    <li>Todavia quedan celdas por marcar, osea que no hay empate</li>
+    <li>Comprueba si el jugador con las 'X' ha conseguido colocar 3 fichas en linea.</li>
+ </ol>
+ 
+La forma que tiene para comprobar si el jugador a ganado es la siguiente:
+Tenemos todas las variantes de victoria. 3 lineas horizontales, 3 lineas verticales y otra 2 en diagonal:
+
+~~~
+jugada_ganada([F,F,F,_,_,_,_,_,_],F).
+jugada_ganada([_,_,_,F,F,F,_,_,_],F).
+jugada_ganada([_,_,_,_,_,_,F,F,F],F).
+jugada_ganada([F,_,_,F,_,_,F,_,_],F).
+jugada_ganada([_,F,_,_,F,_,_,F,_],F).
+jugada_ganada([_,_,F,_,_,F,_,_,F],F).
+jugada_ganada([F,_,_,_,F,_,_,_,F],F).
+jugada_ganada([_,_,F,_,F,_,F,_,_],F).
+~~~
+Si alguna de esas jugadas resulta ser true, significaria que el jugador que acaba de mover ha ganado la partida:
+~~~
+victoria(Tablero,Jugador):-
+	jugada_ganada(Tablero,Jugador),
+	write('Fin de partida, gana '),
+	showPlayer(Jugador),
+	nl,
+	!.
+~~~
 
  
  
