@@ -256,7 +256,7 @@ En el otro caso, que elegimos que empiece la IA. En vez de llamar al predicado j
 partida(Tabla,1):-
 	write('Turno IA: '),
 	nl,
-	**gallego(Tabla, NuevaTabla,o),**
+	gallego(Tabla, NuevaTabla,o),
 	show(NuevaTabla),
 	\+ victoria(NuevaTabla,o),
 	\+ empate(NuevaTabla),
