@@ -251,8 +251,40 @@ jugada_ganada([_,_,F,_,F,_,F,_,_],F).
 Donde F es igual a O.
 
 ## Empieza la IA
- 
- 
+En el otro caso, que elegimos que empiece la IA. En vez de llamar al predicado jugador() llama al predicado:
+~~~
+partida(Tabla,1):-
+	write('Turno IA: '),
+	nl,
+	**gallego(Tabla, NuevaTabla,o),**
+	show(NuevaTabla),
+	\+ victoria(NuevaTabla,o),
+	\+ empate(NuevaTabla),
+	partida(NuevaTabla,0),
+	!. 
+~~~
+
+En ese predicado le mandamos la tabla actual y que el jugador actual es el que usa 'O' (La IA).
+~~~
+gallego(Tabla,NuevaTabla,Jugador):-
+	prueba1(Tabla,1,Jugador,Pos),
+	movimiento(Tabla,Pos,NuevaTabla,Jugador),!;
+	other(Jugador,J),
+	prueba1(Tabla,1,J,Pos),
+	movimiento(Tabla,Pos,NuevaTabla,Jugador),!;
+	comprobarCuenta(Tabla,Jugador,Pos),
+	movimiento(Tabla,Pos,NuevaTabla,Jugador),!.
+~~~	
+Lo primero que hara sera consultar con el predicado prueba1 enviandole la tabla actual, un contador para el numero de simulaciones y el jugador. Esperando que devuelva una posicion.
+
+~~~
+prueba1(Tabla,Count,Jugador,Pos):-
+	movimiento(Tabla,Count,NuevaTabla,Jugador),
+	jugada_ganada_pos(NuevaTabla,Jugador,Count,Pos),!;
+	Count1 is Count + 1,
+	Count1<10,
+	prueba1(Tabla,Count1,Jugador,Pos).
+~~~	
 
 
 
