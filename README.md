@@ -166,6 +166,12 @@ partida(Tabla,0):-
 	partida(T,1),
 	!.
 ~~~	
+Inserta los datos en la lista de esta forma:
+~~~
+insert([_|T],1,E,[E|T]).
+insert([H|T],P,E,[H|R]) :-
+    P > 1, NP is P-1, insert(T,NP,E,R).
+~~~
 
 ## Empieza el jugador
 
@@ -284,6 +290,29 @@ prueba1(Tabla,Count,Jugador,Pos):-
 	Count1<10,
 	prueba1(Tabla,Count1,Jugador,Pos).
 ~~~	
+Tiene un corte en jugada_ganada_pos() ya que si encuentra una forma de ganar, no le interesa seguir buscando.
 
+En prueba1, busca a ver si hay alguna forma de victoria directa en un solo movimiento. Es recursivo. Para en cuanto haya recorrido las 9 posibilidades o haya encontrado una vicotria directa.
+
+Despues comprueba si el rival tiene alguna forma directa de ganar y coloca la ficha ahi para impedirlo.
+
+Si no es el caso, nos movemos a comprobarLinea() donde llama a ia(): 
+~~~
+comprobarCuenta(Tabla, Jugador,Pos):-
+	ia(Tabla,Jugador,1,_,Pos).
+	
+ia(Tabla,Jugador,Pos,Count,Win):-
+	Pos<10,
+	calculeVictory(Tabla,Jugador,Pos,Count1),
+	Pos1 is Pos+1,
+	ia(Tabla,Jugador,Pos1,Count2,Win2),
+	(Count2<Count1,
+	Win is Pos,
+	Count is Count1;
+	Win is Win2,
+	Count is Count2),!.
+~~~
+
+Se prueba cada combinacion estableciendole un valor en calculeVictory(). Se llama recursivamente y va comprobando cual es el count de mayor valor y lo devuelve.
 
 
