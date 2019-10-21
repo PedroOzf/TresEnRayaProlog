@@ -90,7 +90,65 @@ jugar(_):-
 	partida(Tabla,A).
  ~~~
  
- Hemos representado el tablero como una lista de 9 posiciones. Al empezar la partida establecemos todas esas posiciones a "v" para referirse a que esta vacia. 
+ Hemos representado el tablero como una lista de 9 posiciones. Al empezar la partida establecemos todas esas posiciones a "n" para referirse a que no hay nada.
+ 
+ ~~~
+ iniciar_tablero([n,n,n,n,n,n,n,n,n]).
+ ~~~
+ Le devueve esta lista vacia al predicado show() donde imprime la lista que reciba:
+ 
+ ~~~
+ show(Tabla):-
+	write('   |a|b|c|'),
+	nl,
+	write(' 1 |'),
+	showValue(Tabla,1),
+	write('|'),
+	showValue(Tabla,2),
+	write('|'),
+	showValue(Tabla,3),
+	write('|'),
+	nl,
+	write(' 2 |'),
+	showValue(Tabla,4),
+	write('|'),
+	showValue(Tabla,5),
+	write('|'),
+	showValue(Tabla,6),
+	write('|'),
+	nl,
+	write(' 3 |'),
+	showValue(Tabla,7),
+	write('|'),
+	showValue(Tabla,8),
+	write('|'),
+	showValue(Tabla,9),
+	write('|'),
+	nl.
+~~~
+Divide la lista que le enviamos en 3 lineas para asi representar una matriz de 3x3, es decir, el tablero del 3 en raya.
+showValue detecta si hay una "n","x" u "o" en la lista y devuelve el valor asignado para cada uno. En este caso, como todo esta a "n" devuelve un ' '.
+El resultado seria este porque la lista esta vacia: 
+~~~
+?- jugar(_).
+   |a|b|c|
+ 1 | | | |
+ 2 | | | |
+ 3 | | | |
+ ~~~
+ 
+ Despues de imprimir el tablero vacio por pantalla te pregunta quien quieres que empieze la partida, si el jugador o la IA.
+ 
+ ~~~
+ Escoje Turno: (1-Empieza IA; 0-Empieza Jugador
+|: 
+~~~
+Lo lee y llama al predicado con la tabla vacia y nuestra preferencia partida(Tabla,A) para empezar
+ 
+
+
+ 
+ 
 
 
 
