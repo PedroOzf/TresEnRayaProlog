@@ -77,7 +77,8 @@ Fin de partida, gana O
 
 ~~~
 
- 
+##Explicacion del cogido
+
 El predicado para iniciar la partida consta de las siguientes partes: 
  ~~~
 jugar(_):-
@@ -88,6 +89,8 @@ jugar(_):-
 	read(A),
 	partida(Tabla,A).
  ~~~
+ 
+ Hemos representado el tablero como una lista de 9 posiciones. Al empezar la partida establecemos todas esas posiciones a "v" para referirse a que esta vacia. 
 
 
 
