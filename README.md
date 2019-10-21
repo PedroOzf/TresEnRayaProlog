@@ -3,18 +3,17 @@ Nuestro codigo consiste en el juego **Tres en Raya** (Three in a row). El juego 
 
 Las reglas son las siguientes:
 
-<p align="center">
-  <ol>
-    <li>El tablero esta formado por 3 filas y 3 columnas.</li>
-    <li>Cada jugador solo puede colocar una ficha por turno.</li>
-    <li>No se puede colocar una ficha en una posicion previamente marcada. </li>
-    <li>El ganador sera el primero que consiga tener 3 fichas en una linea recta ya sea horizontal, vertical o diagonal.</li>
-    <li>El juego termina cuando gane el jugador(O), la IA(X) o todas las celdas del tablero esten completas, en ese caso se tendra en cuenta como empate.</li>
-  </ol>
+   1. El tablero esta formado por 3 filas y 3 columnas.
+   2. Cada jugador solo puede colocar una ficha por turno.
+   3. No se puede colocar una ficha en una posicion previamente marcada.
+   4. El ganador sera el primero que consiga tener 3 fichas en una linea recta ya sea horizontal, vertical o diagonal.
+   5. El juego termina cuando gane el jugador(O), la IA(X) o todas las celdas del tablero esten completas, en ese caso se tendra en cuenta como empate.
+    
+  <p align="center">
   <img src="/Img/tablero.jpg" width="300" title="tablero" align="center">
   </p>
   
-  Para ejecutar el codigo se necesita el programa [SWI Prolog](https://www.swi-prolog.org/Download.html). Una vez descargardo, en la consola de comandos, nos vamos al directorio donde tenemos el archivo TresEnRaya.pl. 
+  Para ejecutar el código se necesita el programa [SWI Prolog](https://www.swi-prolog.org/Download.html). Una vez descargardo, en la consola de comandos, nos vamos al directorio donde tenemos el archivo TresEnRaya.pl. 
   
   En Linux ejecutamos los comandos en la consola:
   ~~~
@@ -23,7 +22,7 @@ Las reglas son las siguientes:
   jugar(_). //Empezamos la partida
   ~~~
   
-Despues de llamar al predicado jugar nos saldra esto por pantalla:
+Después de llamar al predicado jugar nos saldrá esto por pantalla:
 ~~~
 ?- jugar(_).
    |a|b|c|
@@ -77,7 +76,7 @@ Fin de partida, gana O
 
 ~~~
 
-##Explicacion del cogido
+## Explicación del código
 
 El predicado para iniciar la partida consta de las siguientes partes: 
  ~~~
